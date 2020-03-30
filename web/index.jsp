@@ -8,7 +8,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,12 +28,12 @@
 
 <div class="banner">
   <div class="container">
-    <h2 class="hdng"><a href="detail.action?goodid=7">爱之玫瑰</a><span></span></h2>
+    <h2 class="hdng"><a href="detail.action?goodid=7">${scroll.name}</a><span></span></h2>
     <p>今日精选推荐</p>
     <a class="banner_a" href="javascript:;" onclick="buy(7)">立刻购买</a>
     <div class="banner-text">
       <a href="detail.action?goodid=7">
-        <img src="picture/7-1.jpg" alt="爱之玫瑰" width="350" height="350">
+        <img src="${pageContext.request.contextPath}${scroll.cover}" alt="爱之玫瑰" width="350" height="350">
       </a>
     </div>
   </div>
@@ -106,11 +105,7 @@
             </div>
           </div>
         </div>
-
       </c:forEach>
-
-
-
 
     </div>
   </div>

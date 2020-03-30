@@ -9,11 +9,12 @@ import java.util.Map;
 /**
  * @author GoodsService
  * @Date 2020/3/30 11:00
- * @Description 处理业务逻辑层
+ * @Description service层 处理业务逻辑层
  */
 public class GoodsService {
 
     private GoodsDao gDao = new GoodsDao();
+    // 热销
     public List<Map<String, Object>> getHotGoodsList(){
         List<Map<String, Object>> list = null;
         try {
@@ -24,6 +25,7 @@ public class GoodsService {
         return list;
     }
 
+    // 新品
     public List<Map<String, Object>> getNewGoodsList(){
         List<Map<String, Object>> list = null;
         try {
@@ -33,4 +35,16 @@ public class GoodsService {
         }
         return list;
     }
+
+    // 条幅
+    public Map<String, Object> getScrollGoods(){
+        Map<String, Object> list = null;
+        try {
+           list = gDao.getScrollGoods();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
 }

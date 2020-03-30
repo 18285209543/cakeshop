@@ -5,6 +5,7 @@ import com.cakeshop.utils.DBUtil;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.MapHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
 
 import javax.sql.DataSource;
@@ -22,34 +23,31 @@ import java.util.Map;
  * @Description dao层 只负责数据库操作
  */
 public class GoodsDao {
-    public static void main(String[] args) throws SQLException {
-//        DataSource ds = new ComboPooledDataSource();
-//        Connection con = ds.getConnection();
-//        PreparedStatement ps = con.prepareStatement("select * from goods");
-//
-//        ResultSet rs = ps.executeQuery();
-//        while (rs.next()){
-//            System.out.println(rs.getString("name"));
-//        }
-//
-//        rs.close();
-//        ps.close();
-//        con.close();
 
-    }
-
-
-    // 查询首页
+    // 查询热销 新品
     public static List<Map<String, Object>> getGoodsList(int recommendType) throws SQLException {
 
         // 创建c3p0数据源
         QueryRunner r = new QueryRunner(DBUtil.getDataSource());
 
         String sql = "select g.id, g.name,g.cover, g.price, t.name typename from recommend r, goods g, type t where type=? and r.goods_id=g.id and g.type_id=t.id";
-        // 这里使用MapListHandler处理返回数据
+        // MapListHandler  key value 返回多条
         //  List<Map<String, Object>> list = r.query(sql, new MapListHandler());
 
-
-           return r.query(sql, new MapListHandler(),recommendType);
+        // sql 接收的方法 参数...
+        return r.query(sql, new MapListHandler(),recommendType);
     }
+
+    // 条幅
+    public static Map<String, Object> getScrollGoods() throws SQLException {
+
+        // 创建c3p0数据源
+        QueryRunner r = new QueryRunner(DBUtil.getDataSource());
+
+        String sql = "select g.id, g.name,g.cover, g.price from recommend r, goods g where type=1 and r.goods_id=g.id";
+        // MapListHandler  key value返回1条
+        return r.query(sql, new MapHandler());
+    }
+
+
 }

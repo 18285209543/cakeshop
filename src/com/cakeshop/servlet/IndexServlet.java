@@ -20,15 +20,20 @@ public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println(request.getContextPath()+"/index.jsp");
         // 取得条幅商品
+        Map<String, Object> scrollGoods =  gs.getScrollGoods();
+        request.setAttribute("scroll", scrollGoods);
+
         // 取得热销商品
         List<Map<String, Object>> list =  gs.getHotGoodsList();
         request.setAttribute("hotList", list);
+
         // 取得新品商品
         List<Map<String, Object>> newlist =  gs.getNewGoodsList();
-
         request.setAttribute("newList", newlist);
+
 
         // 跳转到index.jsp
         request.getRequestDispatcher("/index.jsp").forward(request,response);
+
     }
 }
