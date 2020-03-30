@@ -17,7 +17,17 @@ public class GoodsService {
     public List<Map<String, Object>> getHotGoodsList(){
         List<Map<String, Object>> list = null;
         try {
-             list = gDao.getHotGoodsList();
+             list = gDao.getGoodsList(2);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public List<Map<String, Object>> getNewGoodsList(){
+        List<Map<String, Object>> list = null;
+        try {
+            list = gDao.getGoodsList(3);
         } catch (SQLException e) {
             e.printStackTrace();
         }

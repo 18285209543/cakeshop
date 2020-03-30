@@ -83,120 +83,33 @@
     <div class="alert alert-info">新品推荐</div>
     <div class="gallery-grids">
 
-      <div class="col-md-3 gallery-grid ">
-        <a href="detail.action?goodid=14">
-          <img src="picture/14-1.jpg" class="img-responsive" alt="意大利芝士饼干"/>
-        </a>
-        <div class="gallery-info">
-          <p>
-            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-            <a href="detail.action?goodid=14">查看详情</a>
-          </p>
-          <a class="shop" href="javascript:;" onclick="buy(14)">立刻购买</a>
-          <div class="clearfix"> </div>
-        </div>
-        <div class="galy-info">
-          <p>零食系列 > 意大利芝士饼干</p>
-          <div class="galry">
-            <div class="prices">
-              <h5 class="item_price">¥ 39</h5>
+      <c:forEach items="${newList}" var="n">
+        <div class="col-md-3 gallery-grid ">
+          <a href="detail.action?goodid=14">
+            <img src="${pageContext.request.contextPath}${n.cover}" class="img-responsive" alt="${n.name}"/>
+          </a>
+          <div class="gallery-info">
+            <p>
+              <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+              <a href="detail.action?goodid=14">查看详情</a>
+            </p>
+            <a class="shop" href="javascript:;" onclick="buy(14)">立刻购买</a>
+            <div class="clearfix"> </div>
+          </div>
+          <div class="galy-info">
+            <p>${n.typenmae} > ${n.name}</p>
+            <div class="galry">
+              <div class="prices">
+                <h5 class="item_price">¥ ${n.price}</h5>
+              </div>
+              <div class="clearfix"></div>
             </div>
-            <div class="clearfix"></div>
           </div>
         </div>
-      </div>
 
-      <div class="col-md-3 gallery-grid ">
-        <a href="detail.action?goodid=13">
-          <img src="picture/13-1.jpg" class="img-responsive" alt="蜂蜜蛋糕"/>
-        </a>
-        <div class="gallery-info">
-          <p>
-            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-            <a href="detail.action?goodid=13">查看详情</a>
-          </p>
-          <a class="shop" href="javascript:;" onclick="buy(13)">立刻购买</a>
-          <div class="clearfix"> </div>
-        </div>
-        <div class="galy-info">
-          <p>零食系列 > 蜂蜜蛋糕</p>
-          <div class="galry">
-            <div class="prices">
-              <h5 class="item_price">¥ 36</h5>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-      </div>
+      </c:forEach>
 
-      <div class="col-md-3 gallery-grid ">
-        <a href="detail.action?goodid=12">
-          <img src="picture/12-1.jpg" class="img-responsive" alt="青森芝士条"/>
-        </a>
-        <div class="gallery-info">
-          <p>
-            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-            <a href="detail.action?goodid=12">查看详情</a>
-          </p>
-          <a class="shop" href="javascript:;" onclick="buy(12)">立刻购买</a>
-          <div class="clearfix"> </div>
-        </div>
-        <div class="galy-info">
-          <p>零食系列 > 青森芝士条</p>
-          <div class="galry">
-            <div class="prices">
-              <h5 class="item_price">¥ 36</h5>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-      </div>
 
-      <div class="col-md-3 gallery-grid ">
-        <a href="detail.action?goodid=11">
-          <img src="picture/11-1.jpg" class="img-responsive" alt="半熟芝士"/>
-        </a>
-        <div class="gallery-info">
-          <p>
-            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-            <a href="detail.action?goodid=11">查看详情</a>
-          </p>
-          <a class="shop" href="javascript:;" onclick="buy(11)">立刻购买</a>
-          <div class="clearfix"> </div>
-        </div>
-        <div class="galy-info">
-          <p>零食系列 > 半熟芝士</p>
-          <div class="galry">
-            <div class="prices">
-              <h5 class="item_price">¥ 38</h5>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3 gallery-grid ">
-        <a href="detail.action?goodid=10">
-          <img src="picture/10-1.jpg" class="img-responsive" alt="玫瑰舒芙蕾"/>
-        </a>
-        <div class="gallery-info">
-          <p>
-            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-            <a href="detail.action?goodid=10">查看详情</a>
-          </p>
-          <a class="shop" href="javascript:;" onclick="buy(10)">立刻购买</a>
-          <div class="clearfix"> </div>
-        </div>
-        <div class="galy-info">
-          <p>零食系列 > 玫瑰舒芙蕾</p>
-          <div class="galry">
-            <div class="prices">
-              <h5 class="item_price">¥ 28</h5>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-      </div>
 
 
     </div>

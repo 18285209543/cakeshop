@@ -24,7 +24,9 @@ public class IndexServlet extends HttpServlet {
         List<Map<String, Object>> list =  gs.getHotGoodsList();
         request.setAttribute("hotList", list);
         // 取得新品商品
+        List<Map<String, Object>> newlist =  gs.getNewGoodsList();
 
+        request.setAttribute("newList", newlist);
 
         // 跳转到index.jsp
         request.getRequestDispatcher("/index.jsp").forward(request,response);
