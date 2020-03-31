@@ -4,6 +4,7 @@ import com.cakeshop.dao.TypeDao;
 import com.cakeshop.model.Type;
 
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * @author TypeService
@@ -13,10 +14,9 @@ import java.sql.SQLException;
 public class TypeService {
     private TypeDao tDao = new TypeDao();
 
-
     // 处理类型
-    public Type selectAll() {
-        Type type = null;
+    public List<Type> selectAll() {
+        List<Type> type = null;
         try {
             type = tDao.selectAll();
         } catch (SQLException e) {

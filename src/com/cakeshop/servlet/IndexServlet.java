@@ -18,7 +18,7 @@ public class IndexServlet extends HttpServlet {
     private GoodsService gs = new GoodsService();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println(request.getContextPath()+"/index.jsp");
+
         // 取得条幅商品
         Map<String, Object> scrollGoods =  gs.getScrollGoods();
         request.setAttribute("scroll", scrollGoods);

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: mayn
@@ -27,7 +28,7 @@
             <!--navbar-header-->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.action" class="active">首页</a></li>
+                    <li><a href="${pageContext.request.contextPath}" class="active">首页</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle " data-toggle="dropdown">商品分类<b class="caret"></b></a>
                         <ul class="dropdown-menu multi-column columns-2">
@@ -36,16 +37,11 @@
                                     <div class="col-sm-12">
                                         <h4>商品分类</h4>
                                         <ul class="multi-column-dropdown">
+                                            <li><a class="list" href="${pageContext.request.contextPath}/goods_list">全部系列</a></li>
 
-                                            <li><a class="list" href="goods.action?typeid=5">经典系列</a></li>
-
-                                            <li><a class="list" href="goods.action?typeid=4">法式系列</a></li>
-
-                                            <li><a class="list" href="goods.action?typeid=3">儿童系列</a></li>
-
-                                            <li><a class="list" href="goods.action?typeid=2">零食系列</a></li>
-
-                                            <li><a class="list" href="goods.action?typeid=1">冰淇淋系列</a></li>
+                                            <c:forEach items="${typeList}" var="g">
+                                                <li><a class="list" href="${pageContext.request.contextPath}/goods_list?id=${g.id}">${g.name}</a></li>
+                                            </c:forEach>
 
                                         </ul>
                                     </div>
